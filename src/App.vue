@@ -16,6 +16,15 @@
       <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
     </ul>
+    <div class="block-link">
+      <h2>custom study</h2>
+      <ul>
+        <li v-for="(item, index) in blockItems" :title="item.name"><router-link :to="item.routerPath">{{item.name}}</router-link></li>
+      </ul>
+    </div>
+    <div class="block-content">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
@@ -24,7 +33,13 @@ export default {
   name: 'app',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      blockItems: [
+        {
+          name: 'directive',
+          routerPath: './directive'
+        }
+      ]
     }
   }
 }
@@ -56,5 +71,14 @@ li {
 
 a {
   color: #42b983;
+}
+
+/**
+ * custom study
+ */
+.block-link {
+  h2 {
+    border-top: 2px solid #eee;
+  }
 }
 </style>
